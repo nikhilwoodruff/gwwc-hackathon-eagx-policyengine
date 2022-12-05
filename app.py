@@ -66,3 +66,10 @@ fig = px.line(
 
 st.write(fig)
 
+# Find the donation amount which gives the desired net income.
+
+for i, net_income in enumerate(net_income_by_donation):
+    if net_income - donations[i] - net_income_by_donation[0] <= -lower_by_amount:
+        break
+
+st.write(f"You should donate {donations[i]:,.0f} to charity to lower your net income by ${lower_by_amount:,.0f}.")
